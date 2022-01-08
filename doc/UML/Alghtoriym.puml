@@ -1,0 +1,32 @@
+@startuml
+'https://plantuml.com/activity-diagram-beta
+
+start
+:слово;
+:загрузка html;
+:преобразование html в root;
+:извлечение из root ключевое слово текста;
+note right: word
+:извлечение из root список значение в виде elemеnt -> elements;
+while (elements)
+    :извлечь word_en;
+    note right: en
+    :извлечь transcription;
+    note right: transcription
+    :извлечь part of speech;
+    note right: part_of_speech
+    :извлечь дополнительную информацию;
+    note right: addition
+    :извлечение из element список значение в виде elemеnt -> meanings;
+    :извлечение полного значения;
+    note right: description
+    :description_short='';
+    while(meanings)
+        :извлечь description_short;
+        :description_short=''+ description_short;
+    endwhile
+endwhile
+:формирование вывода;
+stop
+
+@enduml
